@@ -3,7 +3,7 @@ import requests
 import json
 
 date = datetime.datetime.now()
-repeat = "Would you like to do anything else?"
+REPEAT = "Would you like to do anything else?"
 
 print("What is your name")
 name = input()
