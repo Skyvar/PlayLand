@@ -3,7 +3,7 @@ import requests
 import json
 
 date = datetime.datetime.now()
-repeat = "Would you like to do anything else?"
+REPEAT = "Would you like to do anything else?"
 
 print("What is your name")
 name = input()
@@ -36,10 +36,10 @@ while True:
     if choice == "1":
         print("\nToday is : " + date.strftime("%A"), date.strftime("%B"), date.strftime("%d"), date.strftime("%Y"))
         print("\n")
-        print(repeat)
+        print(REPEAT)
     elif choice == "2":
         print("\nHello " + name + ", it's a pleasure to meet you\n")
-        print(repeat)
+        print(REPEAT)
     elif choice == "3":
         while True:
             todo = open('todo.list', 'r+')
@@ -54,10 +54,10 @@ while True:
                 todo.close()
             elif todoChoice == "n" or todoChoice == "N":
                 break
-                print(repeat)
+                print(REPEAT)
             else:
                 print("Not a valid option")
-            print(repeat)
+            print(REPEAT)
     elif choice == "4":
         print("Please enter your zip code:")
         zip = input()
