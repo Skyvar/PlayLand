@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import datetime
 import requests
 import json
@@ -20,14 +22,14 @@ def menu():
     9. Exit PyMenu
     """)
 
-def temperature(zip):
-    url = "http://api.openweathermap.org/data/2.5/weather?q=" + zip + "&APPID=7d309f4fac16c6fe0779b433aa566dbf",
-    weather = requests.get(url)
-    data = weather.json()
-    ktemp = data["temp"]
+def temperature(zipcode):
+    url = "http://api.openweathermap.org/data/2.5/weather?q=" + str(zipcode) + "&APPID=7d309f4fac16c6fe0779b433aa566dbf"
+    weather = requests.get(url).json()
+    degree_symbol='°'
+    ktemp = weather['main']['temp']
     ftemp = (ktemp * 9/5) - 459.67
-    print("The current temp for zip " + zip + " is:\n")
-    print(ftemp)
+    print("The current temp for zip " + str(zipcode) + " is:\n")
+    print(str(int(ftemp)) + str(degree_symbol) + "F")
 
 
 while True:
@@ -60,8 +62,8 @@ while True:
             print(REPEAT)
     elif choice == "4":
         print("Please enter your zip code:")
-        zip = input()
-        temperature(zip)
+        zipcode = input()
+        temperature(zipcode)
     elif choice == "9":
         print("Thanks for using PyMenu " + name + ", have a great day!")
         break
